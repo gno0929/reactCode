@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class ContactDetails extends React.Component {
-  Constructor(props) {
+  constructor(props) {
       super(props);
 
       this.state = {
@@ -35,8 +35,8 @@ export default class ContactDetails extends React.Component {
           <h2>Details</h2>
           {this.props.isSelected ? details : blank }
           <p>
-              <button onClick={this.handleToggle}>Edit</button> //Edit 버튼 생성
-              <button onClick={this.props.onRemove}>Remove</button> //Remove 버튼 생성
+              <button onClick={this.handleToggle}>Edit</button>
+              <button onClick={this.props.onRemove}>Remove</button>
           </p>
       </div>
     );
