@@ -1,6 +1,25 @@
 import React from 'react';
 
 export default class ContactDetails extends React.Component {
+  Constructor(props) {
+      super(props);
+
+      this.state = {
+        isEdit: false,
+        name: '',
+        phone: ''
+      };
+
+      this.handleToggle = this.handleToggle.bind(this);
+  }
+
+  handleToggle() {
+      this.setState({
+          isEdit: !this.state.isEdit
+      });
+      console.log(this.state.isEdit);
+  }
+
   render() {
 
     const details = (
@@ -15,6 +34,10 @@ export default class ContactDetails extends React.Component {
       <div>
           <h2>Details</h2>
           {this.props.isSelected ? details : blank }
+          <p>
+              <button onClick={this.handleToggle}>Edit</button> //Edit 버튼 생성
+              <button onClick={this.props.onRemove}>Remove</button> //Remove 버튼 생성
+          </p>
       </div>
     );
   }
@@ -24,5 +47,6 @@ ContactDetails.defaultProps = {
     contact: {
         name: '',
         phone: ''
-    }
+    },
+    onRemove: () => { console.error('onRemove not defined');}
 };
